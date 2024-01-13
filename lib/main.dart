@@ -1,17 +1,17 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart'; // importar paquete desde la ruta dada
 
-void main() {
-  runApp(const MyApp());
+void main() { // funcion que no retorna nada
+  runApp(const MyApp());  // instrucciones
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MyApp extends StatelessWidget { // clase MyApp que se extiende de la super clase StatelessWidget
+  const MyApp({super.key}); // inicializacion de constante MyApp
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
+  Widget build(BuildContext context) {  // Metodo build
+    return MaterialApp( // valor de retorno. MaterialApp es un objeto
+      title: 'Flutter Demo',  // Variable title con tipo de dato string
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -28,16 +28,16 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),  // Al objeto ColorScheme se le aplica el metodo fromSeed, dentro del cual se especifican sus parametros.
+        useMaterial3: true, // valor booleano para useMaterial3
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class MyHomePage extends StatefulWidget { // clase MyHomePage que extiende desde la super clase StatefulWidget
+  const MyHomePage({super.key, required this.title}); // inicializacion de MyhomePage
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -48,35 +48,35 @@ class MyHomePage extends StatefulWidget {
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
 
-  final String title;
+  final String title; // inicializador final para title
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _MyHomePageState extends State<MyHomePage> { // clase que se extiende de una superclase
+  int _counter = 0; // declaracion de variable
 
-  void _incrementCounter() {
-    setState(() {
+  void _incrementCounter() {  // metodo _incrementCounter que no regresa nada.
+    setState(() {   // instrucciones de ejecucion 
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter++;
+      _counter++; // variable con incremento
     });
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context) {  // metodo build que devuelve un widget
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return Scaffold(
+    return Scaffold(  // retorna scaffold
       appBar: AppBar(
         // TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
@@ -103,10 +103,10 @@ class _MyHomePageState extends State<MyHomePage> {
           // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
           // action in the IDE, or press "p" in the console), to see the
           // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center, // al objeto MainAxisAligment se le aplica el metodo center
           children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+            const Text( // inicializa la instancia Text
+              'You have pushed the button this many times:',  
             ),
             Text(
               '$_counter',
