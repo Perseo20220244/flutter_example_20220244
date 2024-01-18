@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart'; // importar paquete desde la ruta dada
 
-void main() { // funcion que no retorna nada
-  runApp(const MyApp());  // instrucciones
+void main() {
+  // funcion que no retorna nada
+  runApp(const MyApp()); // instrucciones
 }
 
-class MyApp extends StatelessWidget { // clase MyApp que se extiende de la super clase StatelessWidget
-  const MyApp({super.key}); // inicializacion de constante MyApp
+class MyApp extends StatelessWidget {
+  // clase MyApp que se extiende de la super clase StatelessWidget
+  const MyApp({super.key}); // Myapp es un constructor
 
   // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {  // Metodo build
-    return MaterialApp( // valor de retorno. MaterialApp es un objeto
-      title: 'Flutter Demo',  // Variable title con tipo de dato string
+  @override // Sobre escribe la funcion build
+  Widget build(BuildContext context) {
+    // Metodo build
+    // Es una funcion por que tiene lo que va retornar, identificador y parametros
+    return MaterialApp(
+      // valor de retorno. MaterialApp es un Widget
+      title: 'Flutter Demo', // Variable title con tipo de dato string
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -28,7 +33,9 @@ class MyApp extends StatelessWidget { // clase MyApp que se extiende de la super
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),  // Al objeto ColorScheme se le aplica el metodo fromSeed, dentro del cual se especifican sus parametros.
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors
+                .green), // Al objeto ColorScheme se le aplica el metodo fromSeed, dentro del cual se especifican sus parametros.
         useMaterial3: true, // valor booleano para useMaterial3
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
@@ -36,8 +43,10 @@ class MyApp extends StatelessWidget { // clase MyApp que se extiende de la super
   }
 }
 
-class MyHomePage extends StatefulWidget { // clase MyHomePage que extiende desde la super clase StatefulWidget
-  const MyHomePage({super.key, required this.title}); // inicializacion de MyhomePage
+class MyHomePage extends StatefulWidget {
+  // clase MyHomePage que extiende desde la super clase StatefulWidget
+  const MyHomePage(
+      {super.key, required this.title}); // inicializacion de MyhomePage
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -54,11 +63,14 @@ class MyHomePage extends StatefulWidget { // clase MyHomePage que extiende desde
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> { // clase que se extiende de una superclase
+class _MyHomePageState extends State<MyHomePage> {
+  // clase que se extiende de una superclase
   int _counter = 0; // declaracion de variable
 
-  void _incrementCounter() {  // metodo _incrementCounter que no regresa nada.
-    setState(() {   // instrucciones de ejecucion 
+  void _incrementCounter() {
+    // metodo _incrementCounter que no regresa nada.
+    setState(() {
+      // instrucciones de ejecucion
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
       // so that the display can reflect the updated values. If we changed
@@ -69,14 +81,16 @@ class _MyHomePageState extends State<MyHomePage> { // clase que se extiende de u
   }
 
   @override
-  Widget build(BuildContext context) {  // metodo build que devuelve un widget
+  Widget build(BuildContext context) {
+    // metodo build que devuelve un widget
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    return Scaffold(  // retorna scaffold
+    return Scaffold(
+      // retorna scaffold
       appBar: AppBar(
         // TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
@@ -103,10 +117,12 @@ class _MyHomePageState extends State<MyHomePage> { // clase que se extiende de u
           // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
           // action in the IDE, or press "p" in the console), to see the
           // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center, // al objeto MainAxisAligment se le aplica el metodo center
+          mainAxisAlignment: MainAxisAlignment
+              .center, // al objeto MainAxisAligment se le aplica el metodo center
           children: <Widget>[
-            const Text( // inicializa la instancia Text
-              'You have pushed the button this many times:',  
+            const Text(
+              // inicializa la instancia Text
+              'You have pushed the button this many times:',
             ),
             Text(
               '$_counter',
