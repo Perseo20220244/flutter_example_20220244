@@ -1,17 +1,18 @@
-import 'package:flutter/material.dart'; // importar paquete desde la ruta dada
+import 'package:flutter/material.dart'; // Una lista de cosas de las que depende la aplicacion
 
 void main() {
-  // funcion que no retorna nada
-  runApp(const MyApp()); // instrucciones
+  // funcion principal
+  runApp(const MyApp()); // runApp es el root del widget tree
+  // runApp es un metodo del framework, toma cualquier widget que le das y lo pone en la cima de la jerarquia de widgets
 }
 
 class MyApp extends StatelessWidget {
   // clase MyApp que se extiende de la super clase StatelessWidget
-  const MyApp({super.key}); // Myapp es un constructor
-
-  // This widget is the root of your application.
-  @override // Sobre escribe la funcion build
+  const MyApp({super.key}); // constructor
+  // todo widget debe tener un metodo build
+  @override // Sobre escribe el metodo build
   Widget build(BuildContext context) {
+    // este metodo describe como construir cada widget
     // Metodo build
     // Es una funcion por que tiene lo que va retornar, identificador y parametros
     return MaterialApp(
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  // Widget con estado
   // clase MyHomePage que extiende desde la super clase StatefulWidget
   const MyHomePage(
       {super.key, required this.title}); // inicializacion de MyhomePage
@@ -70,13 +72,14 @@ class _MyHomePageState extends State<MyHomePage> {
   void _incrementCounter() {
     // metodo _incrementCounter que no regresa nada.
     setState(() {
+      // widget para cambiar el estado de otro widget
       // instrucciones de ejecucion
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter++; // variable con incremento
+      _counter++; // variable privada con incremento
     });
   }
 
@@ -90,17 +93,22 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      // retorna scaffold
+      // retorna scaffold que es el 'lienzo' de la aplicacion
       appBar: AppBar(
+        //widget para una barra que forma parte de la estructura de la aplicacion
         // TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
         // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Theme.of(context)
+            .colorScheme
+            .inversePrimary, // propiedad hijo del widget AppBar
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
+        title: Text(widget
+            .title), // propiedad hijo del widget AppBar que a su vez tiene un widget de texto
       ),
       body: Center(
+        // widget body que es el cuerpo de la aplicacion
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
@@ -117,24 +125,30 @@ class _MyHomePageState extends State<MyHomePage> {
           // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
           // action in the IDE, or press "p" in the console), to see the
           // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment
-              .center, // al objeto MainAxisAligment se le aplica el metodo center
+          mainAxisAlignment:
+              MainAxisAlignment.center, // widget de posicionamiento central
           children: <Widget>[
             const Text(
-              // inicializa la instancia Text
+              //  widget de texto para mostrar en pantalla un texto
               'You have pushed the button this many times:',
             ),
             Text(
+              // widget que muestra el valor de _counter que se va actualizando o cambiando de estado
               '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineMedium, // style es una propiedad del widget de texto
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        // widget para insertar bonotnes en la aplicacion
+        onPressed:
+            _incrementCounter, // propiedad hijo del widget que dice esperar una accion al presionar el boton y se llama a la variable privada _incrementCounter
+        tooltip: 'Increment', // widget que muestra un string
+        child: const Icon(Icons
+            .add), // propiedad hico que muestra un widget que no puede cambiar al ser constante.
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
